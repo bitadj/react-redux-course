@@ -5,13 +5,16 @@ export const SET_CHARACTER_PROFILE = 'SET_CHARACTER_PROFILE';
 export const SET_CHARACTER_WORLD = 'SET_CHARACTER_WORLD';
 export const SET_CHARACTER_MOVIES = 'SET_CHARACTER_MOVIES';
 
+// action creator. will be handled by reducer
 export function setCurrentCharacter(id) {
   return {
     type: SET_CURRENT_CHARACTER,
     id,
   };
 }
+// want this action kicked off when someone clicks a character
 
+// action creator
 export function setCharacterProfile(profile) {
   return {
     type: SET_CHARACTER_PROFILE,
@@ -19,6 +22,7 @@ export function setCharacterProfile(profile) {
   };
 }
 
+// doing async work here, so returning a function
 export function getCharacterProfile(id) {
   return dispatch =>
     fetch(`${API_URL}/people/${id}`)
@@ -38,6 +42,7 @@ export function setCharacterWorld(world) {
 }
 
 export function getCharacterWorld(url) {
+  // returning a thunk
   return dispatch =>
     fetch(url)
       .then(res => res.json())

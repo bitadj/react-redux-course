@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// component               `profile & world` available through props
 const CharacterProfile = ({ profile, world }) =>
   <div id='character-profile' className='col-md-6'>
     <h1>Profile</h1>
